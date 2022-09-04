@@ -1,0 +1,29 @@
+{% extends "product/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method=POST autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token  %}
+   <div class="row">
+    <div class="col-md-6">
+        {{form.Factory_name | as_crispy_field}}
+        {{form.Product_name | as_crispy_field}}
+        {{form.location | as_crispy_field}}
+        {{form.Quantity | as_crispy_field}}
+        {{form.image | as_crispy_field}}
+    </div>
+    <div class="col-md-6">
+        {{form.description | as_crispy_field}}
+    </div>
+   </div>
+   <button type="submit" class="btn btn-success">SUBMIT</button>
+   <div class="col-md-12">
+    <a href="{% url 'product_list' %}">
+        <p class="bg-dark text-mute border float-sm-right mr-5 border-primary"> back to list  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </a>
+   </div>
+
+</form>
+
+
+{% endblock content %}

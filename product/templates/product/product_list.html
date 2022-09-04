@@ -1,0 +1,45 @@
+{% extends "product/base.html" %}
+
+{% block content %}
+<form method="GET">
+    {{listing_filter.form}}
+    <button class="btn btn-sm btn-danger" type="submit">submit</button>
+</form>
+<a href="{% url 'product _insert' %}">
+<p class="bg-success text-dark border float-sm-right mr-5 border-primary"> Add Product <i class="fa-solid fa-plus"></i> </p>
+</a>
+<table class="table table-striped">
+    <thread class="border bottom font-weight-bold">
+        <tr class="text-info">
+            <td>FactoryName</td>
+            <td>ProductName</td>
+            <td>Quantity(tonnes)</td>
+            <td>Location</td>
+            <td> Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thread> 
+    <tbody>
+    {% for x in listing_filter.qs %}
+     <tr style="color:black">
+        <td> {{x.Factory_name}}</td>
+        <td> {{x.Product_name}}</td>
+        <td> {{x.Quantity}}</td>
+        <td>{{x.location}}</td>
+        <td>
+            <a href="{% url 'product_update' x.id %}" class="btn text-mute px-0">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+  
+        </td>
+        <td>
+            <a href="{% url 'product_delete' x.id %}" class="btn text-mute px-0">
+                <i class="fa-solid fa-trash-can"></i>
+            </a>
+
+        </td>
+     </tr>
+     {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
