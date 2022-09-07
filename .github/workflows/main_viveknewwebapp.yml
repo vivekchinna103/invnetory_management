@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'viveknewwebapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5A0014B39A6042B0BDC03E01216854ED }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3AF3E93F752C4EC8BFE529CCA969B969 }}
